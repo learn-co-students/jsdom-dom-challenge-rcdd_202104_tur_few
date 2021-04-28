@@ -16,22 +16,50 @@ const commentBox = document.getElementById("comment-input");
 const submitButton = document.getElementById("submit");
 
 
-let counter = 0, innerCounter = counter, liCounter = 0, pCounter = 0;
+let counter = 0, innerCounter = counter;
 
 function counterEvent(){
-              
-        setInterval(function(){
-                counterValue.innerText = ++counter;
-        }, 1000);
+        // Those are used inside the restart functionality:
+        let liCounter = 0, pCounter = 0;
 
+        // To start the counter to count:
+        let timeInterval;
+        function countInterval(){
+                timeInterval = setInterval(function(){
+                        counterValue.innerText = ++counter;
+                }, 1000);
+        }
+
+        // To make the counter starts after the DOM loads:
+        window.addEventListener("DOMContentLoaded", function(){
+                countInterval();
+        });
+
+        // Pause Button Functionality:
+        pauseButton.addEventListener("click", function(){
+                if (pauseButton.innerText === "pause"){
+                        pauseButton.textContent = "resume";
+                        clearInterval(timeInterval);
+                }
+
+                else if (pauseButton.innerText === "resume"){
+                        pauseButton.textContent = "pause";
+                        countInterval();
+                }
+        });
+
+
+        // Minus Button Functionality:
         minusButton.addEventListener("click", function(){
                 counterValue.innerText = --counter;
         });
 
+        // Plus Button Functionality:
         plusButton.addEventListener("click", function(){
                 counterValue.innerText = ++counter;
         });
 
+        // Heart Button Functionality:
         let pressCounter = 1;
         heartButton.addEventListener("click", function(){
                 let likesLi = document.createElement('li');
@@ -50,6 +78,7 @@ function counterEvent(){
                 }
         });
 
+        // Submit Button Functionality:
         submitButton.addEventListener("click", function(e){
                 let commentParagraph = document.createElement('p');
                 commentParagraph.textContent = commentBox.value;
@@ -58,12 +87,12 @@ function counterEvent(){
                 e.preventDefault();
         });
 
-        
+        // Restart button Functionality:
         restartButton.addEventListener("click", function(){
                 counterValue.innerText = 0;
                 counter = 0;
 
-                // To restart the like section and the comment section
+                // To restart the like section and the comment section as well
                 for (let i = 0; i < liCounter; i++){
                         likesUl.removeChild(likesUl.childNodes[0]);
                 }
@@ -73,22 +102,4 @@ function counterEvent(){
         });    
 }
 
-// window.addEventListener("DOMContentLoaded", function(){
-//         let openClose = 0;
-//         // counterEvent();
-//         pauseButton.textContent = "pause";
-        
-//         pauseButton.addEventListener("click", function(){
-//                 if (openClose === 0){
-//                         pauseButton.textContent = "resume";
-//                         openClose++;
-//                 }
-//                 else {
-//                         pauseButton.textContent = "pause";
-//                         counterEvent();
-//                         openClose--;
-//                 }
-//         });
-// });
-
-// counterEvent();
+counterEvent();
