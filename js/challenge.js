@@ -40,11 +40,17 @@ function counterEvent(){
                 if (pauseButton.innerText === "pause"){
                         pauseButton.textContent = "resume";
                         clearInterval(timeInterval);
+                        minusButton.disabled = true;
+                        plusButton.disabled = true;
+                        heartButton.disabled = true;
                 }
 
                 else if (pauseButton.innerText === "resume"){
                         pauseButton.textContent = "pause";
                         countInterval();
+                        minusButton.disabled = false;
+                        plusButton.disabled = false;
+                        heartButton.disabled = false;
                 }
         });
 
