@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded",()=>{
+
 let counter = document.querySelector('#counter');    
 let seconds = 0;
 function incrementSeconds() {
@@ -7,20 +7,24 @@ function incrementSeconds() {
 }
 const cancel = setInterval(incrementSeconds, 1000);
 
+document.addEventListener("DOMContentLoaded",()=>{ 
+    incrementSeconds();
+});
+
 const minusButton = document.querySelector('#minus');
 minusButton.addEventListener("click", () => {
     counter.innerText = --seconds;
     // let counter = document.querySelector('#counter');
     // let counterDecrease= parseInt(counter.innerText);
     // counter.innerText = counterDecrease-1;
-})
+});
 const plusButton = document.querySelector('#plus');
 plusButton.addEventListener("click", () => {
     counter.innerText = ++seconds;
     // let counter = document.querySelector('#counter');
     // let counterIncrease= parseInt(counter.innerText);
     // counter.innerText = counterIncrease+1;
-})
+});
 
 
 const heartButton = document.querySelector('#heart');
@@ -73,7 +77,7 @@ restartButton.addEventListener("click", function(){
     while (commentsP.firstChild) {
     commentsP.removeChild(commentsP.firstChild);
     }
-   
 }); 
 
-})
+
+ 
