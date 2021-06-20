@@ -1,15 +1,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles.css">
   <title>Dom Challenge</title>
-  <style>
-    #counter {
-      background-color: black;
-      color: white;
-      display: table;
-      padding: 10px;
-    }
-  </style>
 </head>
 <body>
   <h1>
@@ -31,14 +24,16 @@
 
     <h3>Leave a comment</h3>
 
-    <form id="comment-form" action="">
-      <input type='text' name="comment" id="comment-input" cols="30" rows="10">
+    <form id="comment-form">
+      <input type='text' name="comment" id="comment-input" />
       </br>
-      <button id='submit'>submit</button>
+      <input type="submit" name="submit" id="submit" value="submit" />
     </form>
-
   </div>
 
+    <div id="comments">
+
+    </div>
   <!-- <script src="js/index.min.js"></script> -->
   <script src="js/challenge.js"></script>
 </body>
