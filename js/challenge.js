@@ -87,18 +87,18 @@
 // ================================================================= //
 
 // "Add comments" STARTS 
-let commentsDiv = document.getElementById("comments")
-let commentInput = document.getElementById("comment-input");
-let commentForm = document.getElementById("comment-form");
-let submitButton = document.getElementById("submit")
-submitButton.addEventListener("click", (e) => {
-    e.preventDefault()
-    let div = document.createElement("div");
-    let p = document.createElement("p");
+    let commentsDiv = document.getElementById("comments")
+    let commentInput = document.getElementById("comment-input");
+    let commentForm = document.getElementById("comment-form");
+    let submitButton = document.getElementById("submit")
+    submitButton.addEventListener("click", (e) => {
+        e.preventDefault()
+        let div = document.createElement("div");
+        let p = document.createElement("p");
 
 
-    p.innerText = commentInput.value;
-    div.appendChild(p);
-    commentsDiv.appendChild(div);
-})
-
+        p.innerText = commentInput.value;
+        div.appendChild(p);
+        commentsDiv.appendChild(div);
+    })
+// "Add comments" ENDS 
