@@ -49,13 +49,22 @@ function pause() {
 
     let currentSecond = second;
     if (onOffSwitchForTimer === "ON") { //START
+        pauseButton.innerText = "pause";
         second = currentSecond; // if it got started, continue from the stopped timed
         i = 0;
         timer()
+        minusButton.disabled = false;
+        plusButton.disabled = false;
+        heartButton.disabled = false;
     }
     else if (onOffSwitchForTimer === "OFF") { //STOP
+        pauseButton.innerText = "resume";
         currentSecond = second;
-        i = 10;
+        i = 10; // stop the timer
+        minusButton.disabled = true;
+        plusButton.disabled = true;
+        heartButton.disabled = true;
+
     }
 }
 let pauseButton = document.getElementById("pause");
